@@ -1,5 +1,7 @@
-FROM ubuntu
-RUN apt update
-RUN apt install apache2 -y
-CMD ["usr/sbin/apache2", "-D", "FOREGROUND"]
-EXPOSE 80
+FROM nginx
+
+COPY wrapper.sh /
+
+COPY html /usr/share/nginx/html
+
+CMD ["./wrapper.sh"]
