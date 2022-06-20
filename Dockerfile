@@ -1,7 +1,6 @@
-FROM nginx
+FROM ubuntu
+MAINTAINER demousr@gmail.com
 
-COPY wrapper.sh /
-
-COPY html /usr/share/nginx/html
-
-CMD ["./wrapper.sh"]
+RUN apt-get update
+RUN apt-get install –y nginx
+CMD [“echo”,”Image created”]
